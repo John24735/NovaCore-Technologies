@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaCore Technologies - Tech Solutions Provider</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2a2a2a;
+            --accent-color: #00f7ff;
+            --text-color: #ffffff;
+        }
+
+        body {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .header {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 247, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-card i {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .service-examples {
+            margin-top: 1rem;
+            padding: 1rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .service-examples h4 {
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-examples ul {
+            list-style: none;
+            padding-left: 1rem;
+        }
+
+        .service-examples li {
+            position: relative;
+            margin-bottom: 0.3rem;
+        }
+
+        .service-examples li::before {
+            content: "▹";
+            color: var(--accent-color);
+            position: absolute;
+            left: -1rem;
+        }
+
+        .contact-section {
+            padding: 5rem 2rem;
+            background: rgba(0, 0, 0, 0.9);
+        }
+
+        option {
+            color: #2a2a2a;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 5px;
+            color: var(--text-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #000;
+        }
+
+        .current-year {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">NovaCore</a>
+            <div class="nav-links">
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Transform Your Digital Presence</h1>
+            <p>Professional tech solutions for businesses and individuals</p>
+            <a href="#contact" class="cta-button">Start Your Project</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-code"></i>
+                <h3>Web & Mobile Development</h3>
+                <p>Custom websites, mobile apps, portfolios, and enterprise solutions</p>
+                <div class="service-examples">
+                    <h4>Recent Projects:</h4>
+                    <ul>
+                        <li>E-commerce mobile app with AR features</li>
+                        <li>Corporate portfolio with CMS integration</li>
+                        <li>Real-time collaboration web platform</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-file-alt"></i>
+                <h3>CV & Application Letters</h3>
+                <p>ATS-friendly documents that get you noticed</p>
+                <div class="service-examples">
+                    <h4>Examples Include:</h4>
+                    <ul>
+                        <li>Tech industry-specific CV templates</li>
+                        <li>Executive-level application packages</li>
+                        <li>Career change transition letters</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-palette"></i>
+                <h3>Design Services</h3>
+                <p>UI/UX design, graphic design, and branding solutions</p>
+                <div class="service-examples">
+                    <h4>Portfolio Samples:</h4>
+                    <ul>
+                        <li>Brand identity for SaaS startup</li>
+                        <li>E-learning platform UX redesign</li>
+                        <li>Product packaging design system</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-business-time"></i>
+                <h3>Business Planning</h3>
+                <p>Business strategy development and establishment support</p>
+                <div class="service-examples">
+                    <h4>Success Stories:</h4>
+                    <ul>
+                        <li>Tech startup funding proposals</li>
+                        <li>Market expansion strategies</li>
+                        <li>Operational efficiency audits</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Cyber Security Solutions</h3>
+                <p>Proactive protection against digital threats</p>
+                <div class="service-examples">
+                    <h4>Implemented Solutions:</h4>
+                    <ul>
+                        <li>Phishing attack simulation for banking sector</li>
+                        <li>Retail theft prevention system using AI</li>
+                        <li>Blockchain-based transaction security</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <i class="fas fa-cogs"></i>
+                <h3>Complete Tech Solutions</h3>
+                <p>End-to-end technology services for all your digital needs</p>
+                <div class="service-examples">
+                    <h4>Integrated Solutions:</h4>
+                    <ul>
+                        <li>Full-stack development + marketing strategy</li>
+                        <li>Hardware/software integration systems</li>
+                        <li>Legacy system modernization</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Start Your Project</h2>
+        <form class="contact-form" action="https://formspree.io/f/xjkbldqk" method="POST">
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+                <select name="service" required>
+                    <option value="">Select Service</option>
+                    <option>Web Development</option>
+                    <option>Mobile App Development</option>
+                    <option>CV Writing</option>
+                    <option>Design Services</option>
+                    <option>Business Planning</option>
+                    <option>Security Solutions</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <textarea name="message" placeholder="Project Details" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Submit Request</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; <span class="current-year">2023</span> NovaCore Technologies. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Update footer year
+        document.querySelector('.current-year').textContent = new Date().getFullYear();
+
+        // Form handling
+        const form = document.querySelector('form');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                if (response.ok) {
+                    form.innerHTML = `
+                        <div class="success-message">
+                            <h3>Thank you for your submission!</h3>
+                            <p>We'll contact you within 24 hours.</p>
+                        </div>
+                    `;
+                } else {
+                    alert('There was a problem with your submission. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was a network error. Please try again.');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 50) {
+                document.querySelector('.header').style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+            } else {
+                document.querySelector('.header').style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+            }
+        });
+    </script>
+</body>
+
+</html>
